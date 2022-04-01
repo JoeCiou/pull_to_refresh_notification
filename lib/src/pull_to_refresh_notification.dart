@@ -525,10 +525,14 @@ class PullToRefreshNotificationState extends State<PullToRefreshNotification>
       child: AnimatedBuilder(
         animation: _positionController,
         builder: (BuildContext context, Widget? child) {
-          return RefreshProgressIndicator(
-            value: showIndeterminateIndicator ? null : _value.value,
-            valueColor: _valueColor,
-            strokeWidth: 2.0,
+          return Container(
+            width: 48,
+            height: 48,
+            child: RefreshProgressIndicator(
+              value: showIndeterminateIndicator ? null : _value.value,
+              valueColor: _valueColor,
+              strokeWidth: 2.0,
+            ),
           );
         },
       ),
