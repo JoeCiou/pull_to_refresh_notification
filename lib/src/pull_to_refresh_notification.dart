@@ -525,21 +525,11 @@ class PullToRefreshNotificationState extends State<PullToRefreshNotification>
       child: AnimatedBuilder(
         animation: _positionController,
         builder: (BuildContext context, Widget? child) {
-          final bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
-
-          if (isIOS) {
-            return CupertinoActivityIndicator(
-              animating: showIndeterminateIndicator,
-              radius: 15.0,
-              activeColor: widget.color ?? Theme.of(context).accentColor,
-            );
-          } else {
-            return RefreshProgressIndicator(
-              value: showIndeterminateIndicator ? null : _value.value,
-              valueColor: _valueColor,
-              strokeWidth: 2.0,
-            );
-          }
+          return RefreshProgressIndicator(
+            value: showIndeterminateIndicator ? null : _value.value,
+            valueColor: _valueColor,
+            strokeWidth: 2.0,
+          );
         },
       ),
     );
